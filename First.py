@@ -1,36 +1,31 @@
 import requests
 
-# Set your Groq API key and endpoint
-API_KEY = "your_groq_api_key_here"
-API_ENDPOINT = "https://api.groq.com/v1/completions"  # Replace with Groq's actual endpoint
+API_KEY = "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"  
 
-# Function to interact with the LLM via Groq API
 def interact_with_llm(prompt):
     try:
-        # Prepare the payload
+       
         payload = {
-            "prompt": prompt,
-            "max_tokens": 100,  # Limit the response length
-            "temperature": 0.7  # Adjust for creativity
+            "model": "llama-3.3-70b-versatile",  
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 100, 
+            "temperature": 0.7  
         }
         
-        # Set headers with the API key
         headers = {
             "Authorization": f"Bearer {API_KEY}",
             "Content-Type": "application/json"
         }
         
-        # Send the request
-        response = requests.post(API_ENDPOINT, json=payload, headers=headers)
-        response.raise_for_status()  # Raise an error for bad responses
+        response = requests.post("https://api.groq.com/openai/v1/chat/completions", json=payload, headers=headers)
+        response.raise_for_status()  
         
-        # Extract and return the response text
-        return response.json().get("choices", [{}])[0].get("text", "No response")
+      
+        return response.json().get("choices", [{}])[0].get("message", {}).get("content", "No response")
     
     except Exception as e:
         return f"Error: {e}"
 
-# Example usage
 if __name__ == "__main__":
     prompt = input("Enter your question or prompt: ")
     response = interact_with_llm(prompt)
