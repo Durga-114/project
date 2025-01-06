@@ -1,0 +1,5 @@
+Guest ID,Name,Feedback,Sentiment Analysis,Service Issues
+1,John Doe,The service was amazing! I'll come back for sure.,Positive,None
+2,Jane Smith,The room was dirty and the staff was unhelpful.,Negative,"dirty, unhelpful"
+3,Sam Lee,"The food was okay, but it could be better.",Neutral,None
+4,Tom Harris,"The check-in was delayed, and the room was too hot.",Positive,too hot
