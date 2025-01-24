@@ -1,15 +1,15 @@
 from slack_sdk.webhook import WebhookClient
 
 # Slack Webhook URL
-slack_webhook_url = "https://hooks.slack.com/services/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"
+slack_webhook_url = "https://hooks.slack.com/services/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"
 
 def send_slack_notification(review, sentiment, next_steps, area_responsible):
     """
     Sends a notification to Slack using the Slack WebhookClient.
     """
- 
+    # Format the message
     alert_message = (
-        f"⚠️*Attention Required: Guest Feedback Alert*\n"
+        f"⚠️ *Attention Required: Guest Feedback Alert* \n"
         f"*Review:* {review}\n"
         f"*Sentiment:* {sentiment}\n"
         f"*Next Steps:* {next_steps}\n"
